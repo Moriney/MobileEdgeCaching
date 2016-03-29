@@ -14,24 +14,12 @@ public class CacheObject implements ICacheObject {
 		return timeToLeave;
 	}
 
-	public void setTimeToLeave(long timeToLeave) {
-		this.timeToLeave = timeToLeave;
-	}
-
 	public String getKey() {
 		return key;
 	}
 
-	public void setKey(String key) {
-		this.key = key;
-	}
-
 	public String getValue() {
 		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
 	}
 
 	/**

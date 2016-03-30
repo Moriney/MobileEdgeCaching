@@ -20,4 +20,11 @@ public class LocalCache {
 	}
 	//remove
 	
+	public boolean exists(String key){
+		if(localCacheTable.containsKey(key))
+			return true;
+		else
+			return false;
+	}
+	
 }

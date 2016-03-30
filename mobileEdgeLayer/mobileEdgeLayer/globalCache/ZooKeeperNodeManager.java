@@ -130,6 +130,13 @@ public class ZooKeeperNodeManager implements Watcher{
     {
     	zk.delete(znodePath + entryName, -1);
     }
+    
+    public boolean exists(String znodePath, String key) throws KeeperException, InterruptedException{
+    	if(zk.exists(znodePath+ key, false)!=null)
+    		return true;
+    	else
+    		return false;
+    }
 
 
 }

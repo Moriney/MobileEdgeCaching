@@ -57,5 +57,20 @@ public class GlobalCache {
 
 	}
 	
+	public boolean exists(String key){
+		
+		try {
+			if(this.zookeeper.exists(Config.getInstance().getCacheRoot(),key))
+				return true;
+			else
+				return false;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			
+			return false;
+		}
+	}
+	
 	
 }

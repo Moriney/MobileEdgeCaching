@@ -25,7 +25,7 @@ import mobileEdgeLayer.Config;
  */
 public class ZooKeeperNodeManager implements Watcher{
 	
-	private static ZooKeeperNodeManager singletonInstance =new ZooKeeperNodeManager();
+	private static final ZooKeeperNodeManager singletonInstance =new ZooKeeperNodeManager();
 	ZooKeeper zk;
 	String hostPort;
 	

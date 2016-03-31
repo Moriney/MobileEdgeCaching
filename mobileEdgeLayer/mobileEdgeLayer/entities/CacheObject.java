@@ -21,22 +21,7 @@ public class CacheObject implements ICacheObject {
 	public String getValue() {
 		return value;
 	}
-
-	/**
-	 * Returns an instance of CacheObject class. The timeToLeave is set by reading from Config.
-	 *
-	 * @param  key  the unique key to the cache object in the system
-	 * @param  value the local address to the content
-	 * @return CacheObject instance
-	 */
-	public CacheObject(String key,String value) {
-		
-		this.key=key;
-		this.value=value;
-		this.creationTime=System.currentTimeMillis();
-		this.timeToLeave=Config.getInstance().getTimeToLeave();
-	}
-
+	
 	/**
 	 * Returns an instance of CacheObject class. The timeToLeave is set directly.
 	 *
@@ -52,6 +37,22 @@ public class CacheObject implements ICacheObject {
 		this.creationTime=System.currentTimeMillis();
 		this.timeToLeave=timeToLeave;
 	}
+	
+
+	/**
+	 * Returns an instance of CacheObject class. The timeToLeave is set by reading from Config.
+	 *
+	 * @param  key  the unique key to the cache object in the system
+	 * @param  value the local address to the content
+	 * @return CacheObject instance
+	 */
+	public CacheObject(String key,String value) {
+		
+		this(key,value,Config.getInstance().getTimeToLeave());
+		
+	}
+
+	
 	
 	/**
 	 * Returns the cached object validity. 

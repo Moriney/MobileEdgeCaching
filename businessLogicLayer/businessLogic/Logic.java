@@ -1,6 +1,7 @@
 package businessLogic;
 
 import mobileEdgeLayer.Edge;
+import mobileEdgeLayer.transfer.Transfer;
 
 public class Logic {
 	
@@ -9,25 +10,15 @@ public class Logic {
 		
 	}
 
-	public boolean readyToReceive(String key){
+	public boolean isReadyToReceive(String key){
 		
 		try{
 			
-			if(Edge.getLocalCache().exists(key))
-				return true;
+			if(!Edge.getLocalCache().exists(key))
+				getFileToLocal(key);
 					
-			else if(Edge.getGlobalCache().exists(key))
-			{
-				// TODO transfer to local cache
-				
-				return true;
-			}
-			else
-			{
-				// TODO transfer to local cache
-				// TODO transfer to global cache
-				return true;
-			}
+			return true;
+			
 		}
 		
 		catch (Exception e)
@@ -35,8 +26,30 @@ public class Logic {
 			// TODO
 			return false;
 		}
-		
-				
+						
 	}
 	
-}
+	
+	private void getFileToLocal(String key){
+		
+		Transfer transfer =new Transfer();
+		if(Edge.getGlobalCache().exists(key))
+		{
+			transfer.getFile(key,Edge.getGlobalCache().getBeaconNodes(key));
+			Edge.getLocalCache().add(key);
+		}
+		else
+		{
+			//getting the file from the real server
+			transfer.getFile(key);
+			Edge.getLocalCache().add(key);
+			
+			//Mark this station as the beacon node for this key in the global cache
+			Edge.getGlobalCache().add(key);
+			
+		}
+	
+		
+	}
+
+	}

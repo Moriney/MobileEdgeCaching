@@ -15,7 +15,7 @@ public class LocalCache {
 	
 	public void cacheClean(){};
 	
-	public void add(){
+	public void add(String key){
 		//localCacheTable.put(arg0, arg1)
 	}
 	//remove

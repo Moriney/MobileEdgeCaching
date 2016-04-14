@@ -28,10 +28,10 @@ public class GlobalCache {
 	}
 
 	// Beacon node IP addresses are separated using # character
-	public String[] getBeaconNodes( CacheObject object) {
+	public String[] getBeaconNodes( String key) {
 		
 		try{
-			 String stringBeaconNodes =new String (zookeeper.getData(object.getKey()));
+			 String stringBeaconNodes =new String (zookeeper.getData(key));
 			 return stringBeaconNodes.substring(1).split("#");
 			
 			}
@@ -41,10 +41,10 @@ public class GlobalCache {
 		}
 	}
 	
-	public void add(CacheObject object) {
+	public void add(String key) {
 		
 		zookeeper.insert(Config.getInstance().getCacheRoot(), 
-				object.getKey(), 
+				key, 
 				("#"+Config.getInstance().getMyIP()).getBytes());
 	}
 	

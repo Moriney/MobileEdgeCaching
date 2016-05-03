@@ -1,7 +1,7 @@
 package businessLogic;
 
 import mobileEdgeLayer.Edge;
-import mobileEdgeLayer.transfer.Transfer;
+import transferLayer.Transfer;
 
 public class Logic {
 	

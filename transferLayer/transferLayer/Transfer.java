@@ -1,4 +1,4 @@
-package mobileEdgeLayer.transfer;
+package transferLayer;
 
 public class Transfer {
 

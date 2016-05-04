@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="presentationLayer"/>
+	<classpathentry kind="src" path="serviceLayer"/>
 	<classpathentry kind="src" path="businessLogicLayer"/>
 	<classpathentry kind="src" path="mobileEdgeLayer"/>
 	<classpathentry kind="src" path="transferLayer"/>
